@@ -17,5 +17,42 @@
   }
 }
 
+.page.prev {
+  @apply link
+}
+
+.page.next {
+  @apply link
+}
+
+.pagy.pagy-nav.pagination {
+  @apply bg-lime-300 rounded-xl shadow-lg flex gap-2 p-2
+}
+
+.page {
+  @apply link
+}
+
+.page.active {
+  @apply font-medium text-[#444939];
+  pointer-events: none;
+}
+
+.trix-button-row {
+  @apply flex justify-between w-[680px]
+}
+
+.trix-button-group {
+  @apply rounded-none border-none
+}
+
+.trix-button {
+  @apply rounded-none border-none
+}
+
+.trix-button.trix-button--icon{
+  @apply bg-lime-200 rounded-none border-none hover:bg-white
+}
 
 @import 'actiontext.css';
+

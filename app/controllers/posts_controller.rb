@@ -3,11 +3,13 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :is_user_post ,only: [:edit, :update, :destroy]
   def index
-    @posts = Post.published
+    @posts = Post.sorted.published
+    @pagy, @posts = pagy(@posts)
   end
 
   def user_posts
-    @posts = Post.where(user_id: current_user.id)
+    @posts = Post.sorted.where(user_id: current_user.id)
+    @pagy, @posts = pagy(@posts)
   end
 
   def show

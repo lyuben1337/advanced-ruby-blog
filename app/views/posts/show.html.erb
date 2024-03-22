@@ -2,8 +2,11 @@
   <div class="w-[100%] text-center font-bold text-2xl overflow-hidden whitespace-pre-wrap break-words"><%= @post.title %></div>
   <div class="w-[100%] overflow-hidden">
     <%= @post.content.body %>
+    <div class="mt-4 font-semibold text-lime-600">
+      <%= User.find_by(id: @post.user_id).email %>
+    </div>
   </div>
-  <div class="flex w-[100%] items-center justify-between">
+  <div class="flex w-[100%] gap-2 items-center justify-between">
     <%= link_to "Back", posts_path, class: "btn-primary" %>
     <% if @is_user_post %>
       <div class="flex gap-2">

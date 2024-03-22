@@ -5,6 +5,9 @@
       <div class="text-gray-700">
         <%= post.content.body %>
       </div>
+      <div>
+        <%= User.find_by(id: post.user_id).email %>
+      </div>
     </div>
   </div>
 </a>
