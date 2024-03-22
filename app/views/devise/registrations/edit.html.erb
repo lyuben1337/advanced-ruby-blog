@@ -10,7 +10,10 @@
       <%= render "shared/input", { form_entity: resource_name, form_field: :password_confirmation } %>
     </div>
     <div class="flex w-[100%] justify-between">
-      <%= link_to "Back", :back, class: "btn-primary" %>
+      <div class="flex gap-2">
+        <%= link_to "My Blog", user_posts_path, class: "btn-primary" %>
+        <%= link_to "Back", :back, class: "btn-primary" %>
+      </div>
       <%= f.submit "Update", class: "btn-outlined" %>
     </div>
   </div>

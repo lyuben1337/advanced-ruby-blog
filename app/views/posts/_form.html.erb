@@ -8,11 +8,9 @@
 
     <%= form.rich_text_area :content, class: "w-[100%]  bg-white rounded-xl border border-0" %>
 
-    <div class="flex w-[100%] items-center gap-2">
-      <%= form.datetime_select :published_at %>
+    <div class="flex w-[100%] gap-2">
+      <%= form.datetime_field :published_at, class: "border border-0 rounded-xl"%>
     </div>
-
-
     <%= form.button class: "btn-primary w-[100%]" %>
   </div>
 <% end %>

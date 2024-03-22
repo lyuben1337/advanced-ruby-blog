@@ -3,11 +3,13 @@
   <div class="w-[100%] overflow-hidden">
     <%= @post.content.body %>
   </div>
-  <div class="flex gap-2 w-[100%] items-center justify-between">
-    <div class="flex gap-2">
-      <%= link_to "Back", posts_path, class: "btn-primary" %>
-      <%= link_to "Edit", edit_post_path(@post), class: "btn-outlined" %>
-    </div>
-    <%= button_to "Delete", @post , method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn-danger" %>
+  <div class="flex w-[100%] items-center justify-between">
+    <%= link_to "Back", posts_path, class: "btn-primary" %>
+    <% if @is_user_post %>
+      <div class="flex gap-2">
+        <%= button_to "Delete", @post, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn-danger" %>
+        <%= link_to "Edit", edit_post_path(@post), class: "btn-outlined" %>
+      </div>
+    <% end %>
   </div>
 </div>

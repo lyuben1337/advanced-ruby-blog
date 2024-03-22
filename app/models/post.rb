@@ -4,20 +4,35 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
+  has_one :user
+
   scope :draft, -> {where(published_at: nil)}
-  scope :published, -> {where("published_at <= ?", Time.current)}
-  scope :scheduled, -> {where("published_at > ?", Time.current)}
+  scope :published, -> {where("published_at <= ?", Time.now)}
+  scope :scheduled, -> {where("published_at > ?", Time.now)}
 
   def draft?
     published_at.nil?
   end
 
   def published?
-    published_at? && published_at <= Time.current
+    published_at? && published_at <= Time.now
   end
 
   def schedule?
-    published_at? && published_at > Time.current
+    published_at? && published_at > Time.now
+  end
+
+  def status
+    case
+    when draft?
+      "Draft"
+    when published?
+      "Published"
+    when schedule?
+      "Scheduled"
+    else
+      "Status not determined"
+    end
   end
 
 end
