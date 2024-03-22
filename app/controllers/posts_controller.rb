@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   def index
-    @posts = Post.all
+    @posts = Post.published
   end
 
   def show
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :content, :published_at)
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path
   end

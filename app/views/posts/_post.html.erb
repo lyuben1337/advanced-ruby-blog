@@ -1,0 +1,10 @@
+<a href="<%= post_path(post) %>">
+  <div class="h-[360px] px-4 p-4 rounded shadow-lg cursor-pointer transition-colors hover:bg-lime-200">
+    <div class="overflow-hidden break-words w-[100%] h-[100%]">
+      <div class="font-bold text-xl truncate"><%= post.title %></div>
+      <div class="text-gray-700">
+        <%= post.content.body %>
+      </div>
+    </div>
+  </div>
+</a>

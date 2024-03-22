@@ -1,5 +1,4 @@
-<h1>Edit Post</h1>
-
-<%= render partial: "form", locals: {post: @post} %>
-
-<%= button_to "Delete", @post , method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+<div class="flex flex-col items-center gap-4 mt-20">
+  <div class="text-2xl font-bold">Edit your post!</div>
+  <%= render partial: "form", locals: {post: @post} %>
+</div>

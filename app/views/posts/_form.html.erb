@@ -1,19 +1,18 @@
 <%= form_with model: @post do |form| %>
   <% if form.object.errors.any? %>
-    <% form.object.errors.full_messages.each do |message| %>
-      <div>
-        <%= message %>
-      </div>
-    <% end %>
+    <% alert_messages = form.object.errors.full_messages.each.to_a.join(", ")  %>
+    <%= render "shared/alert", alert: alert_messages.capitalize %>
   <% end %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div>
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
+  <div class="w-[720px] p-5 rounded-xl shadow-lg bg-lime-300 flex flex-col gap-4 items-center">
+    <%= render "shared/input", {form_entity: :post, form_field: :title} %>
 
-  <%= form.button %>
+    <%= form.rich_text_area :content, class: "w-[100%]  bg-white rounded-xl border border-0" %>
+
+    <div class="flex w-[100%] items-center gap-2">
+      <%= form.datetime_select :published_at %>
+    </div>
+
+
+    <%= form.button class: "btn-primary w-[100%]" %>
+  </div>
 <% end %>

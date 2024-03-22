@@ -1,29 +1,13 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="mt-20 w-[500px] h-min p-5 rounded-xl shadow-lg bg-lime-300 flex flex-col gap-4 mx-auto items-center">
+    <div class="text-2xl font-bold">Welcome</div>
+    <%= render "shared/input", {form_entity: resource_name, form_field: :email} %>
+    <%= render "shared/input", {form_entity: resource_name, form_field: :password} %>
+    <%= render "shared/input", {form_entity: resource_name, form_field: :password_confirmation} %>
+    <%= f.submit "Sign up", class: "btn-primary min-w-[100%]" %>
+    <%= render "devise/shared/links" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+

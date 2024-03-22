@@ -1,8 +1,5 @@
-<h1>My blog</h1>
-
-<% @posts.each do |post| %>
-  <div>
-    <h2><%= link_to post.title, post_path(post) %></h2>
-    <div><%= post.body %></div>
-  </div>
-<% end %>
+<div class="mx-4 mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+  <% @posts.each do |post| %>
+    <%=render post %>
+  <% end %>
+</div>

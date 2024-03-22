@@ -1,3 +1,4 @@
-<h1>New Post</h1>
-
-<%= render partial: "form", locals: {post: @post} %>
+<div class="flex flex-col items-center gap-4 mt-20">
+  <div class="text-2xl font-bold">Create your post!</div>
+  <%= render partial: "form", locals: {post: @post} %>
+</div>

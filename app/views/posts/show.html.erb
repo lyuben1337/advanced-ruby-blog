@@ -1,4 +1,13 @@
-<h1><%= @post.title %></h1>
-<div><%= @post.body %></div>
-
-<%= link_to "Edit", edit_post_path(@post) %>
+<div class="mt-10 max-w-[1600px] w-min mx-auto p-5 rounded-xl shadow-lg bg-lime-300 flex flex-col gap-4 items-center">
+  <div class="w-[100%] text-center font-bold text-2xl overflow-hidden whitespace-pre-wrap break-words"><%= @post.title %></div>
+  <div class="w-[100%] overflow-hidden">
+    <%= @post.content.body %>
+  </div>
+  <div class="flex gap-2 w-[100%] items-center justify-between">
+    <div class="flex gap-2">
+      <%= link_to "Back", posts_path, class: "btn-primary" %>
+      <%= link_to "Edit", edit_post_path(@post), class: "btn-outlined" %>
+    </div>
+    <%= button_to "Delete", @post , method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn-danger" %>
+  </div>
+</div>
