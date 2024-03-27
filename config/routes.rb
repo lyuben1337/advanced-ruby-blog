@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   get "user_posts", controller: :posts, as: :user_posts
 
-  resources :posts
-
+  resources :posts do
+    resources :comments
+  end
 
   root "posts#index"
 end

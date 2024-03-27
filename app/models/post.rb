@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   validates :content, presence: true
 
   has_one :user
+  has_many :comments
 
   scope :sorted, -> {order(arel_table[:published_at].desc.nulls_first)}
   scope :draft, -> {where(published_at: nil)}
