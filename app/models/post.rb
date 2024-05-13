@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
-  has_one :user
+  belongs_to :user
   has_many :comments
 
   scope :sorted, -> {order(arel_table[:published_at].desc.nulls_first)}
@@ -38,6 +38,5 @@ class Post < ApplicationRecord
   end
 
 end
-
 
 
